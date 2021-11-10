@@ -1,0 +1,57 @@
+.input-container{
+  width: 100%;
+  position: relative;
+  height: 50px;
+}
+
+.input-container input{
+  width: 100%;
+	height: 100%;
+	color: #111;
+	padding-top: 15px;
+	font-size: 16px;
+	border: none;
+	outline: none;
+	background: transparent;
+}
+
+ .input-container label {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	border-bottom: 1px solid #000;
+}
+
+/* .input-container label::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -1px;
+	width: 100%;
+	height: 100%;
+	border-bottom: 2px solid #5fa8d3;
+	transform: translateX(-100%); 
+	transition: all .3s ease;
+} */
+
+.content-name {
+	position: absolute;
+	bottom: 5px;
+	left: 0;
+	transition: all .3s ease;
+}
+
+.input-container input:focus + .label-name .content-name, 
+.input-container input:valid + .label-name .content-name {
+	transform: translateY(-150%);
+	font-size: 14px;
+	color: #5fa8d3;
+}
+
+.input-container input:focus + .label-name::after, 
+.input-container input:valid + .label-name::after {
+	transform: translateX(0%);
+}

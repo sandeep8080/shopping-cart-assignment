@@ -1,0 +1,17 @@
+.register-wrapper{
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 3rem;
+  @media (max-width: 480px){
+      flex-direction: column;
+      max-width: 90%;
+  }
+}
+
+.register-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

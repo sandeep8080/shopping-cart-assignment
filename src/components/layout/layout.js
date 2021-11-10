@@ -20,19 +20,19 @@ const PageLayout = ({ children }) => {
           />
         </section>
         {/* <section> */}
-        <NavLink path="/home" name="Home" />
+        <NavLink path="/" name="Home" />
         <NavLink path="/products" name="Products" />
         {/* </section> */}
 
         <section className="right-container">
           <div className='cred-container'>
-            <NavLink path="/" name="SignIn" />
+            <NavLink path="/signin" name="SignIn" />
             <NavLink path="/newuser" name="Register" />
           </div>
           <CartButton cartItems={`${totalCartItems} items`} />
         </section>
       </header>
-      <main className="layout-main">{children}</main>
+      <main>{children}</main>
       <Footer footerText='Copyright @ 2020-2021 Sabka Bazaar Grocery Supplies Pvt. ltd'/>
     </div>
   );
