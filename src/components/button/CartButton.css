@@ -1,0 +1,30 @@
+.button-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+  padding: 13px 10px;
+  max-width: 70%;
+  cursor: pointer;
+  width: 90px;
+  height: 20px;
+
+  @media (min-width:481px) and (max-width: 768px) {
+      max-width: 70%;
+  }
+
+  @media(max-width: 480px){
+      padding: 25px 10px;
+      position: relative;
+      left: 40%;
+  }
+}
+.cart-image{
+  max-width: 30px;
+}
+.cart-items{
+  color: black;
+  font-size: .9rem;
+  margin-right: 5px;
+  margin-top: 5px;
+}

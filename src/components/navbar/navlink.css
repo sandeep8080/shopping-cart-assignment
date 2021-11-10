@@ -1,0 +1,16 @@
+ul {
+  list-style-type: none;
+  display: flex;
+  align-items: end;
+  padding-left: 20px;
+}
+
+li {
+  display: inline;
+}
+
+.link-text {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
