@@ -1,0 +1,29 @@
+.product-main{
+  max-width: 85%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    
+    /* @media (max-width:480px){
+        flex-direction: column;
+        max-width: 100%;
+    }
+    @media (min-width:481px) and (max-width: 768px) {
+        max-width: 100%;
+    } */
+}
+.product-container{
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.product-row{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-wrapper{
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 5px;
+}

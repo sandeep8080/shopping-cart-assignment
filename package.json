@@ -8,7 +8,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "canned -p 5000"
+    "dev": "canned -p 7000"
   },
   "author": "Sandeep Garg",
   "license": "MIT",
@@ -20,7 +20,7 @@
     "bootstrap": "^5.1.0",
     "canned": "^0.3.13",
     "react": "^17.0.1",
-    "react-dom": "^17.0.2",
+    "react-dom": "^17.0.1",
     "react-redux": "^7.2.4",
     "react-responsive-carousel": "^3.2.21",
     "react-router-dom": "^5.2.0",

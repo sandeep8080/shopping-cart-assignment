@@ -1,0 +1,21 @@
+.sideBar-container{
+  background: #ddd;
+  width: 25%;
+  min-width: 20%;
+  min-height: 100vh;
+}
+.sideBar-items{
+  border-bottom: 1px solid #4d4d4d;
+    padding: 10px;
+    font-size: .9rem;
+    /* width: 100%; */
+    background-color: transparent;
+    text-align: left;
+    color: #4d4d4d;
+}
+
+.sideBar-items:hover{
+    background-color: grey;
+    cursor: pointer;
+    color: white;
+}

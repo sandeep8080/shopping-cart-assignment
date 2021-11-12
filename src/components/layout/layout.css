@@ -14,7 +14,8 @@ header {
 main {
   display: flex;
   justify-content: center;
-  width: 100%;
+  flex-direction: column;
+  /* width: 100%; */
 }
 footer {
   display: flex;

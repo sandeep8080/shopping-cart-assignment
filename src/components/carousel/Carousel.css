@@ -1,0 +1,17 @@
+.carousel-container{
+  max-width: 85%;
+  margin: 10px auto;
+  box-shadow: 0px 30px 20px -30px #a19f9f;
+}
+
+.carousel-container .carousel{
+  display: none;
+}
+
+.carousel-container .carousel-slider{
+  display: block;
+}
+
+.carousel-container .control-dots{
+  justify-content: center
+}
