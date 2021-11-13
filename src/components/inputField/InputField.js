@@ -5,7 +5,8 @@ const InputField = ({
   name,
   isrequired,
   value,
-  label
+  label,
+  handleChange
 }) => {
   return (
     <>
@@ -14,8 +15,8 @@ const InputField = ({
           type={type}
           name={name}
           required={isrequired}
-          // onChange={(e) => { handleForm(e); handleError(e, regex) }}
           value={value}
+          onChange={handleChange}
         />
         <label className="label-name">
           <span className="content-name">
