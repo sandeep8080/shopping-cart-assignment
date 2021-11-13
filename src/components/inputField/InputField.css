@@ -37,6 +37,9 @@
 	transition: all .3s ease;
 } */
 
+.input-container input:focus + label{
+	border-bottom: 1px solid #5fa8d3;
+}
 .content-name {
 	position: absolute;
 	bottom: 5px;

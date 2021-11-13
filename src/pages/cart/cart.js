@@ -14,9 +14,9 @@ const Cart = () => {
   const totalCount = countTotal(cartItems);
   const totalPrice = countFinalPrice(cartItems);
 
-  console.log(cartItems);
-  console.log(totalCount);
-  console.log(totalPrice);
+  // console.log(cartItems);
+  // console.log(totalCount);
+  // console.log(totalPrice);
 
   return (
     <>

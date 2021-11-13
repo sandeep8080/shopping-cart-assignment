@@ -12,9 +12,14 @@ const ProductsPage = () => {
   const dispatch = useDispatch();
 
   const productsData = useSelector(data => data.Products.products);
-  const sideBarData = useSelector(data => data.Categories.CategoriesItems);
-  const openCart = useSelector(state => state.CartDetails.isOpen);
+  const sideBarData = useSelector(data => {
+    const listItems = data.Categories.CategoriesItems;
+    const activeListItems = listItems.filter(item => item.enabled === true);
+    return activeListItems;
+  });
+  // console.log(sideBarData);
 
+  const openCart = useSelector(state => state.CartDetails.isOpen);
   const [fProductData, setFProductData] = useState([]);
 
   useEffect(() => {
@@ -39,13 +44,15 @@ const ProductsPage = () => {
       />
       <div className='product-container'>
         <div className='product-row'>
-          {(fProductData).map((product) => {
-            return (
-              <div key={product.id} className='card-wrapper' >
-                <ProductCard key={product.id} {...product} />
-              </div>
-            )
-          })}
+          {
+            (fProductData).map((product) => {
+              return (
+                <div key={product.id} className='card-wrapper' >
+                  <ProductCard key={product.id} {...product} />
+                </div>
+              )
+            })
+          }
         </div>
       </div>
       {
