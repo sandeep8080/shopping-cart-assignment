@@ -7,9 +7,13 @@ import './products.css';
 import { getCategoryData } from "../../redux/action/category";
 import Cart from "../cart/cart";
 import Modal from '../../components/modal/Modal';
+import { useHistory, useParams } from "react-router";
 
 const ProductsPage = () => {
   const dispatch = useDispatch();
+  const router = useHistory();
+  const { id } = useParams();
+  console.log(` product comp : ${id}`);
 
   const productsData = useSelector(data => data.Products.products);
   const sideBarData = useSelector(data => {
@@ -17,7 +21,6 @@ const ProductsPage = () => {
     const activeListItems = listItems.filter(item => item.enabled === true);
     return activeListItems;
   });
-  // console.log(sideBarData);
 
   const openCart = useSelector(state => state.CartDetails.isOpen);
   const [fProductData, setFProductData] = useState([]);
@@ -28,12 +31,22 @@ const ProductsPage = () => {
   }, []);
 
   useEffect(() => {
-    setFProductData(productsData)
-  }, [productsData]);
+    if (id) {
+      filterDataByCategory(id);
+    } else {
+      setFProductData(productsData);
+    }
+  }, [productsData, id]);
 
-  const handleClickProduct = (id) => {
+  // Function to filter out the data based on category
+  const filterDataByCategory = (id) => {
     const filterData = productsData.filter(item => item.category === id);
     setFProductData(filterData);
+  };
+
+  const handleClickProduct = (id) => {
+    filterDataByCategory(id);
+    router.push(`/products/${id}`);
   };
 
   return (
@@ -62,7 +75,6 @@ const ProductsPage = () => {
         </Modal>
       }
     </div >
-
   )
 };
 

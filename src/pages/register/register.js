@@ -51,9 +51,8 @@ const RegisterPage = () => {
         email: "",
         password: "",
         confirm_password: "",
-      })
+      });
     }
-
   };
 
   return (
