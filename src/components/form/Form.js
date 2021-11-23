@@ -1,11 +1,10 @@
-import InputField from "../inputField/InputField"
 import './Form.css';
-const Form = ({ children }) => {
+const FormStyle = ({ children }) => {
   return (
-    <form className='form-container'>
+    <div className='form-container'>
       {children}
-    </form>
+    </div>
   )
 };
 
-export default Form;
+export default FormStyle;

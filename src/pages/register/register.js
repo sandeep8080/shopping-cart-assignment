@@ -1,57 +1,33 @@
-import React, { useState } from "react";
-import Form from '../../components/form/Form';
+import FormStyle from '../../components/form/Form';
 import InputField from '../../components/inputField/InputField';
-import Button from '../../components/button/Button';
-
 import './register.css';
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../redux/action/user";
+import useForm from "../../lib/useForm";
 
 const RegisterPage = () => {
   const router = useHistory();
   const dispatch = useDispatch();
-  const [registerUser, setRegisterUser] = useState({
-    first_name: '',
-    last_name: '',
+
+  const { inputData, handleInputChange, clearForm } = useForm({
+    first_name: "",
+    last_name: "",
     email: '',
     password: '',
     confirm_password: ''
   });
 
-  const handleChange = (evt) => {
-    const value = evt.target.value;
-    const pName = evt.target.name;
-    setRegisterUser((prevState) => {
-      return {
-        ...prevState,
-        [pName]: value
-      }
-    });
-  };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    if (registerUser.password === registerUser.confirm_password) {
+    if (inputData.password === inputData.confirm_password) {
       //console.log(registerUser);
       console.log('User is Registered Now');
-      dispatch(addUser(registerUser));
-      setRegisterUser({
-        first_name: "",
-        last_name: "",
-        email: "",
-        password: "",
-        confirm_password: "",
-      });
+      dispatch(addUser(inputData));
       router.push('/signin');
     } else {
       console.log('Password Mismatch !!...');
-      setRegisterUser({
-        first_name: "",
-        last_name: "",
-        email: "",
-        password: "",
-        confirm_password: "",
-      });
+      // ToDO : Clear Form 
     }
   };
 
@@ -62,14 +38,22 @@ const RegisterPage = () => {
         <div>We do not share your personal details</div>
       </article>
       <div className='register-container'>
-        <Form>
-          <InputField label='First Name' type="text" name='first_name' isrequired={true} handleChange={handleChange} value={registerUser.first_name} />
-          <InputField label='Last Name' type="text" name='last_name' isrequired={true} handleChange={handleChange} value={registerUser.last_name} />
-          <InputField label='Email' type="email" name='email' isrequired={true} handleChange={handleChange} value={registerUser.email} />
-          <InputField label='Password' type="password" name='password' isrequired={true} handleChange={handleChange} value={registerUser.password} />
-          <InputField label='Confirm Password' type="password" name='confirm_password' isrequired={true} handleChange={handleChange} value={registerUser.confirm_password} />
-          <Button btnText='Register' handleClick={handleOnSubmit} />
-        </Form>
+        <FormStyle>
+          <form method='POST' onSubmit={handleOnSubmit}>
+            <InputField
+              label='First Name' type="text" name='first_name' isrequired={true}
+              handleChange={handleInputChange} value={inputData.first_name} />
+            <InputField label='Last Name' type="text" name='last_name' isrequired={true}
+              handleChange={handleInputChange} value={inputData.last_name} />
+            <InputField label='Email' type="email" name='email' isrequired={true}
+              handleChange={handleInputChange} value={inputData.email} />
+            <InputField label='Password' type="password" name='password' isrequired={true}
+              handleChange={handleInputChange} value={inputData.password} />
+            <InputField label='Confirm Password' type="password" name='confirm_password' isrequired={true}
+              handleChange={handleInputChange} value={inputData.confirm_password} />
+            <button type='submit'>Register</button>
+          </form>
+        </FormStyle>
       </div>
     </section>
   )

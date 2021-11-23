@@ -1,7 +1,6 @@
-import Button from '../../components/button/Button';
 import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../../components/cart/CartItem";
-import { countFinalPrice, countTotal } from "../../functions/cartHelpers";
+import { countFinalPrice, countTotal } from "../../lib/cartHelpers";
 import lwImage from '../../static/images/lowest-price.png';
 
 import './cart.css';

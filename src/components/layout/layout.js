@@ -1,8 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { countTotal } from "../../functions/cartHelpers";
+import { countTotal } from "../../lib/cartHelpers";
 import { toggleCart } from "../../redux/action/cart";
-// import { Link } from "react-router-dom";
 import HeaderLogo from "../../static/images/logo_2x.png";
 import CartButton from "../button/CartButton";
 import Footer from "../footer/Footer";

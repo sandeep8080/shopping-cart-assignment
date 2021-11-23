@@ -1,4 +1,4 @@
-import { callApi } from "../../functions/api";
+import { callApi } from "../../lib/api";
 import { actions } from '../actionContants/actionConstant';
 
 export const getCategoryData = () => {
