@@ -18,6 +18,7 @@ import * as Yup from 'yup';
  * ! ============ Formik & Yup ==================
  * ? Touched - indicated whether the user has visited the field or not
  * ? string.email - inbuilt validation for email in yup
+ * ? handleReset - to reset the form with a button type reset
  * 
  */
 const LoginPage = () => {

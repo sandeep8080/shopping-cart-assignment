@@ -58,3 +58,9 @@
 .input-container input:valid + .label-name::after {
 	transform: translateX(0%);
 }
+
+.form-error{
+	color:red;
+	font-size: 0.8rem;
+  font-weight: 500;
+}

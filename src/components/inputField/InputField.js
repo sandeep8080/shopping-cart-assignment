@@ -2,8 +2,7 @@ import './InputField.css';
 import { ErrorMessage } from 'formik';
 
 /**
- * ! Either use Formik Componets or custom components for error message display
- * Todo: error css and handling
+ * ! Either use Formik Componets or custom components for error message display 
  */
 const InputField = ({
   type,
@@ -36,7 +35,7 @@ const InputField = ({
       <div>
         {touched[name] && errors[name] ? (
           // <ErrorMessage name={name} />
-          <div> {errors[name]}</div>
+          <div className='form-error'> {errors[name]}</div>
         )
           : null
         }
