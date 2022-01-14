@@ -2,6 +2,7 @@ import './CartItem.css';
 import test2 from '../../static/images/products/fruit-n-veg/kiwi-green.jpg';
 import { updateCart } from '../../redux/action/cart';
 import { useDispatch } from 'react-redux';
+import priceFromatter from '../../lib/priceFromatter';
 
 const CartItem = ({ product }) => {
   const dispatch = useDispatch();
@@ -22,11 +23,11 @@ const CartItem = ({ product }) => {
             <button onClick={() => dispatch(updateCart(id, 'remove'))} className='cart-btn'>-</button>
             <p className='cartItem-text'>{count}</p>
             <button onClick={() => dispatch(updateCart(id, 'add'))} className='cart-btn'>+</button>
-            <p className='cartItem-text'>{` X ${price}`}</p>
+            <p className='cartItem-text'>&times;{priceFromatter(price)}</p>
           </div>
         </div>
       </div>
-      <p className='cartItem-total'>{`Rs.${count * price}`}</p>
+      <p className='cartItem-total'>{priceFromatter(count * price)}</p>
     </div >
   )
 };

@@ -3,6 +3,7 @@ import Button from '../button/Button';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { updateCart } from '../../redux/action/cart';
+import priceFromatter from '../../lib/priceFromatter';
 const ProductCard = ({ name, price, description, imageURL, id }) => {
   const dispatch = useDispatch();
 
@@ -29,7 +30,7 @@ const ProductCard = ({ name, price, description, imageURL, id }) => {
         <div className='content'>
           <p className='content-desc'>{description}</p>
           <div className='content-footer'>
-            <p>{`MRP Rs. ${price}`}</p>
+            <p>{priceFromatter(price)}</p>
             <Button btnText='Add To Cart' handleClick={() => handleClick(id)} />
           </div>
         </div>

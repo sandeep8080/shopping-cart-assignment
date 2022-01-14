@@ -5,6 +5,7 @@ import lwImage from '../../static/images/lowest-price.png';
 
 import './cart.css';
 import { toggleCart } from '../../redux/action/cart';
+import priceFromatter from "../../lib/priceFromatter";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -51,7 +52,7 @@ const Cart = () => {
           {totalCount > 0 ?
             <>
               <p className='cart-message' onClick={() => { dispatch(toggleCart(false)) }}>Proceed to Checkout</p>
-              <p className='cart-message'>{`Rs. ${totalPrice}`}</p>
+              <p className='cart-message'>{priceFromatter(totalPrice)}</p>
             </>
             : <p className='cart-message' onClick={() => dispatch(toggleCart(false))} >Start Shopping</p>
           }

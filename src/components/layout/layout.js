@@ -12,10 +12,9 @@ const PageLayout = ({ children }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(data => data.CartDetails.cartItems);
   const totalCartItems = countTotal(cartItems);
-  
+
   // Handling Cart Button
   const handleCartClick = () => {
-    //console.log('Cart Btn clicked');
     dispatch(toggleCart(true));
   };
 
@@ -30,11 +29,8 @@ const PageLayout = ({ children }) => {
             height="100px"
           />
         </section>
-        {/* <section> */}
         <NavLink path="/" name="Home" />
         <NavLink path="/products" name="Products" />
-        {/* </section> */}
-
         <section className="right-container">
           <div className='cred-container'>
             <NavLink path="/signin" name="SignIn" />

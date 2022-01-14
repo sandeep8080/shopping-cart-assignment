@@ -16,7 +16,7 @@ const Modal = ({ children }) => {
           <div className='modal-title'>
             My Cart
           </div>
-          <span className='modal-close-btn' onClick={handleCloseModal}>X</span>
+          <span className='modal-close-btn' onClick={handleCloseModal}>&times;</span>
         </header>
         {children}
       </div>
