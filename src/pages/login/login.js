@@ -11,11 +11,11 @@ import * as Yup from 'yup';
  * * Using Fromik for From handling
  * * Yup for validation
  * ! No need to create your own custom hookm to handle form
- * 
+ * todo: Unit Test cases for the signUp page
  */
 
 /**
- * ! ============ Formik & Yup ==================
+ * ! ======================= Formik & Yup ===================
  * ? Touched - indicated whether the user has visited the field or not
  * ? string.email - inbuilt validation for email in yup
  * ? handleReset - to reset the form with a button type reset
