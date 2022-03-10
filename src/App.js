@@ -3,19 +3,22 @@ import { Switch, Route } from "react-router-dom";
 
 import PageLayout from "./components/layout/layout";
 import { routeConfig } from "./lib/routeConfig";
+import { Suspense } from "react";
 function App() {
   return (
     <PageLayout>
-      <Switch>
-        {routeConfig.map((route, idx) => {
-          return (
-            <Route key={idx} path={route.path} exact render={props => (
-              <route.component {...props} />
-            )}
-            />
-          )
-        })}
-      </Switch>
+      <Suspense fallback={<p>Loading ....</p>}>
+        <Switch >
+          {routeConfig.map((route, idx) => {
+            return (
+              <Route key={idx} path={route.path} exact render={props => (
+                <route.component {...props} />
+              )}
+              />
+            )
+          })}
+        </Switch>
+      </Suspense>
     </PageLayout>
   );
 }

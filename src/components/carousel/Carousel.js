@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import test from '../../static/images/offers/offer1.jpg';
@@ -28,8 +28,7 @@ const CarouselContainer = () => {
 
       </Carousel>
     </div>
-
   )
 };
 
-export default CarouselContainer;
+export default React.memo(CarouselContainer);

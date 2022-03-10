@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SideBar from "../../components/sideBar/SideBar";
 import { getProductsData } from "../../redux/action/products";
@@ -21,8 +21,8 @@ const ProductsPage = () => {
     const activeListItems = listItems.filter(item => item.enabled === true);
     return activeListItems;
   });
-
   const openCart = useSelector(state => state.CartDetails.isOpen);
+
   const [fProductData, setFProductData] = useState([]);
 
   useEffect(() => {
@@ -40,14 +40,15 @@ const ProductsPage = () => {
 
   // Function to filter out the data based on category
   const filterDataByCategory = (id) => {
+    console.log("Filter data function called")
     const filterData = productsData.filter(item => item.category === id);
     setFProductData(filterData);
   };
 
-  const handleClickProduct = (id) => {
+  const handleClickProduct = useCallback((id) => {
     filterDataByCategory(id);
     router.push(`/products/${id}`);
-  };
+  }, [id]);
 
   return (
     <div className='product-main'>

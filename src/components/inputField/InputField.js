@@ -1,3 +1,4 @@
+import React from 'react';
 import './InputField.css';
 import { ErrorMessage } from 'formik';
 
@@ -15,10 +16,12 @@ const InputField = ({
   errors,
   touched
 }) => {
+  // console.log('Input Filed rendered', name);
   return (
     <>
       <div className='input-container'>
         <input
+          label={label}
           type={type}
           name={name}
           required={isrequired}
@@ -44,4 +47,4 @@ const InputField = ({
   )
 };
 
-export default InputField;
+export default React.memo(InputField);

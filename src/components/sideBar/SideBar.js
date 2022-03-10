@@ -15,4 +15,4 @@ const SideBar = ({ sideBarData, handleClickProduct }) => {
   )
 };
 
-export default SideBar;
+export default React.memo(SideBar);

@@ -4,7 +4,7 @@ import './register.css';
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../redux/action/user";
-import useForm from "../../lib/useForm";
+// import useForm from "../../lib/useForm";
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
