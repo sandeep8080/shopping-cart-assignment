@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import SideBar from "../../components/sideBar/SideBar";
 import { getProductsData } from "../../redux/action/products";
 import ProductCard from '../../components/productCard/ProductCard';
@@ -13,34 +13,36 @@ const ProductsPage = () => {
   const dispatch = useDispatch();
   const router = useHistory();
   const { id } = useParams();
-  console.log(` product comp : ${id}`);
+  console.log(`Product Page is rendered :product comp : ${id}`);
 
   const productsData = useSelector(data => data.Products.products);
+
+  /**
+   * shallowEqual is used to avoid the re-rendering the Product page
+   * Reason - activeListItem is returned new reference everytime. Which forces the useSelector to force a re-render
+   */
+
   const sideBarData = useSelector(data => {
     const listItems = data.Categories.CategoriesItems;
     const activeListItems = listItems.filter(item => item.enabled === true);
     return activeListItems;
-  });
+  }, shallowEqual);
   const openCart = useSelector(state => state.CartDetails.isOpen);
 
-  const [fProductData, setFProductData] = useState([]);
+  const filterData = productsData.filter(item => item.category === id);
+  // Setting the data based on the id.
+  const productPageData = id ? filterData : productsData;
+
+  const [fProductData, setFProductData] = useState(productPageData);
 
   useEffect(() => {
     dispatch(getProductsData());
     dispatch(getCategoryData());
   }, []);
 
-  useEffect(() => {
-    if (id) {
-      filterDataByCategory(id);
-    } else {
-      setFProductData(productsData);
-    }
-  }, [productsData, id]);
-
   // Function to filter out the data based on category
   const filterDataByCategory = (id) => {
-    console.log("Filter data function called")
+    console.log('filterDataByCategory called')
     const filterData = productsData.filter(item => item.category === id);
     setFProductData(filterData);
   };
